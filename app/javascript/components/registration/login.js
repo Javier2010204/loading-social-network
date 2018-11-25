@@ -15,7 +15,7 @@ export class Login extends React.Component{
                         name="email"
                         required
                         validations="isEmail"
-                        validationError="Asegurate de introducir un correo valido"
+                        validationError="Asegurate de introducir un correo valido!"
                         floatingLabelText="Correo electronico"></FormsyText>
                     </div>
                     <div>
