@@ -4,12 +4,38 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import FormsyText from 'formsy-material-ui/lib/FormsyText';
 import RaisedButton from 'material-ui/RaisedButton';
 
+//        ./bin/webpack --watch --progress --colors
+
 export class Login extends React.Component{
+
+    constructor(props){
+        super(props);
+        
+        this.state = {
+            canSubmit: true,
+            email: '',
+            password: '',
+            error: ''
+        }
+
+    }
+
+    enableSubmitBtn(){
+        this.setState({
+            canSubmit:true
+        });
+    }
+
+    disableSubmitBtn(){
+        this.setState({
+            canSubmit:false
+        });
+    }
 
     render(){
         return(
             <MuiThemeProvider>
-                <Formsy.Form>
+                <Formsy.Form onValid={()=>this.enableSubmitBtn} onInvalid={this.disableSubmitBtn}>
                     <div>
                         <FormsyText
                         name="email"
@@ -27,6 +53,7 @@ export class Login extends React.Component{
                     </div>
                     <div>
                         <RaisedButton
+                        disabled={!this.state.canSubmit}
                         name="submit"
                         label="Iniciar Sesion"
                         ></RaisedButton>
