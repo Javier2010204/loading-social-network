@@ -18,8 +18,6 @@ export class Login extends React.Component{
             error: ""
         }
 
-        // hola pruebas en git
-
         this.enableSubmitBtn.bind(this);
         this.disableSubmitBtn.bind(this);
 
