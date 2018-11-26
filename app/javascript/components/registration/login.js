@@ -13,10 +13,13 @@ export class Login extends React.Component{
         
         this.state = {
             canSubmit: true,
-            email: '',
-            password: '',
-            error: ''
+            email: "",
+            password: "",
+            error: ""
         }
+
+        this.enableSubmitBtn.bind(this);
+        this.disableSubmitBtn.bind(this);
 
     }
 
