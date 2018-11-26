@@ -8,7 +8,7 @@ injectTapEventPlugin();
 class Registration extends React.Component{
 
     render(){
-        return <Login name="Javier"/>;
+        return <Login name="Javier Santa Cruz"/>;
     }
 }
 
