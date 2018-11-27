@@ -18,9 +18,6 @@ export class Login extends React.Component{
             error: ""
         }
 
-        this.enableSubmitBtn.bind(this);
-        this.disableSubmitBtn.bind(this);
-
     }
 
     enableSubmitBtn(){
@@ -35,12 +32,32 @@ export class Login extends React.Component{
         });
     }
 
+    syncEmail(ev){
+        let element = ev.target;
+        let value = element.value;
+
+        this.setState({
+            email:value
+        })
+    }
+
+    synPassword(ev){
+        let element = ev.target;
+        let value = element.value;
+
+        this.setState({
+            password:value
+        })
+    }
+
     render(){
         return(
             <MuiThemeProvider>
                 <Formsy.Form onValid={()=>this.enableSubmitBtn} onInvalid={this.disableSubmitBtn}>
+                    <p>{this.email}</p>
                     <div>
                         <FormsyText
+                        onChange={(e)=> this.syncEmail(e)}
                         name="email"
                         required
                         validations="isEmail"
@@ -49,6 +66,7 @@ export class Login extends React.Component{
                     </div>
                     <div>
                         <FormsyText
+                        onChange={(e)=> this.syncPassword(e)}
                         name="password"
                         required
                         type="password"
